@@ -2,7 +2,7 @@ import {
   LOGIN_AUTH,
   SIGNUP_AUTH,
   LOGOUT_AUTH,
-} from './actionTypes'
+} from '../actionTypes'
 
 export const loginAuth = (band) => {
   return {

@@ -1,4 +1,4 @@
-import { LOGIN_AUTH, SIGNUP_AUTH, LOGOUT_AUTH } from './actionTypes'
+import { LOGIN_AUTH, SIGNUP_AUTH, LOGOUT_AUTH } from '../actionTypes'
 
 const initialState = JSON.parse(localStorage.getItem('band')) || {
   success: false,
