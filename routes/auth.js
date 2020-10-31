@@ -8,8 +8,8 @@ const router = express.Router()
 router.post('/signup', async (req, res) => {
   try {
     const { userName, email } = req.body
-    const newUserNameCheck = await User.findOne({ userName })
-    const newUserEmailCheck = await User.findOne({ email })
+    const newUserNameCheck = await Band.findOne({ userName })
+    const newUserEmailCheck = await Band.findOne({ email })
     if (newUserNameCheck) {
       res.status(409).json({
         message: 'User already exists. Change your username!',
