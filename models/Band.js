@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 module.exports = mongoose.model('band', {
-  band: {
+  userName: {
     type: String,
     required: true,
     unique: true,
