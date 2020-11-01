@@ -1,6 +1,6 @@
 import { LOGIN_AUTH, SIGNUP_AUTH, LOGOUT_AUTH } from '../actionTypes'
 
-const initialState = JSON.parse(localStorage.getItem('band')) || {
+const initialState = JSON.parse(localStorage.getItem('festival')) || {
   success: false,
   registered: false,
 }
@@ -10,14 +10,14 @@ export const authReducer = (state = initialState, action) => {
     case LOGIN_AUTH:
       return {
         ...state,
-        ...action.payload.band,
+        ...action.payload.festival,
         registered: action.payload.success,
         success: action.payload.success,
       }
     case SIGNUP_AUTH:
       return {
         ...state,
-        ...action.payload.band,
+        ...action.payload.festival,
         registered: action.payload.success,
         success: action.payload.success,
       }

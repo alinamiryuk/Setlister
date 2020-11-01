@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
-module.exports = mongoose.model('song', {
-  title: {
+module.exports = mongoose.model('band', {
+  name: {
     type: String,
     required: true,
   },
-  show: {
+  day: {
     type: mongoose.Types.ObjectId,
-    ref: 'show',
+    ref: 'day',
   },
 })

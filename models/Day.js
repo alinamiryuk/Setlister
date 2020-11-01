@@ -1,12 +1,12 @@
 const mongoose = require('mongoose')
 
-module.exports = mongoose.model('show', {
-  title: {
+module.exports = mongoose.model('day', {
+  date: {
     type: String,
     required: true,
   },
-  band: {
+  festival: {
     type: mongoose.Types.ObjectId,
-    ref: 'band',
+    ref: 'festival',
   },
 })

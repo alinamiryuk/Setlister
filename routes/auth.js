@@ -1,6 +1,6 @@
 const express = require('express')
 const bcrypt = require('bcrypt')
-const Band = require('../models/Band')
+const Festival = require('../models/Festival')
 const errorHandler = require('../utils/errorHandler')
 const { issueJWT } = require('../utils/issueJWT')
 const router = express.Router()
@@ -8,8 +8,8 @@ const router = express.Router()
 router.post('/signup', async (req, res) => {
   try {
     const { userName, email } = req.body
-    const newUserNameCheck = await Band.findOne({ userName })
-    const newUserEmailCheck = await Band.findOne({ email })
+    const newUserNameCheck = await Festival.findOne({ userName })
+    const newUserEmailCheck = await Festival.findOne({ email })
     if (newUserNameCheck) {
       res.status(409).json({
         message: 'User already exists. Change your username!',
@@ -19,17 +19,17 @@ router.post('/signup', async (req, res) => {
         message: 'User already exists. Change your email!',
       })
     } else {
-      const band = new Band({
+      const festival = new Festival({
         userName: req.body.userName,
         email: req.body.email,
         password: await bcrypt.hash(req.body.password, 10),
       })
-      await band.save()
+      await festival.save()
 
-      const token = issueJWT(band)
+      const token = issueJWT(festival)
       res.status(200).json({
         token,
-        bandname: userName,
+        festivalname: userName,
         success: true,
       })
     }
@@ -41,17 +41,17 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const { userName, password } = req.body
-    await Band.findOne({
+    await Festival.findOne({
       userName,
-    }).then((band) => {
-      if (!band) {
-        res.status(401).json({ success: false, msg: 'Could not find band!' })
+    }).then((festival) => {
+      if (!festival) {
+        res.status(401).json({ success: false, msg: 'Could not find festival!' })
       }
-      if (bcrypt.compareSync(password, band.password)) {
-        const token = issueJWT(band)
+      if (bcrypt.compareSync(password, festival.password)) {
+        const token = issueJWT(festival)
         res.status(200).json({
           token,
-          bandname: userName,
+          festivalname: userName,
           success: true,
         })
       } else {
