@@ -9,37 +9,31 @@ export const Login = () => {
 
   return (
     <>
-      <div class="row">
-        <div class="input-field col s12 hide-span">
+      <div>
           <input
             placeholder="USERNAME"
             id="userName"
             type="text"
             name="userName"
-            class="validate"
             value={state.userName}
             onChange={setState}
           />
-        </div>
-        <div class="input-field col s12 hide-span">
+      
           <input
             id="password"
             type="password"
-            class="validate"
             name="password"
             placeholder="PASSWORD"
             value={state.password}
             onChange={setState}
           />
-        </div>
-        <button
-          class="secondary-content btn-floating waves-effect waves-light deep-purple darken-4"
-          onClick={(e) => {
+      
+        <button onClick={(e) => {
             e.preventDefault()
             dispatch(fetchLoginAuth(state))
           }}
         >
-          <i class="material-icons">check</i>
+          LOGIN
         </button>
       </div>
     </>
