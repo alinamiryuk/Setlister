@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-module.exports = mongoose.model('band', {
+module.exports = mongoose.model('festival', {
   userName: {
     type: String,
     required: true,

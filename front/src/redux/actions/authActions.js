@@ -4,17 +4,17 @@ import {
   LOGOUT_AUTH,
 } from '../actionTypes'
 
-export const loginAuth = (band) => {
+export const loginAuth = (festival) => {
   return {
     type: LOGIN_AUTH,
-    payload: { success: band.success, band },
+    payload: { success: festival.success, festival },
   }
 }
 
-export const signupAuth = (band) => {
+export const signupAuth = (festival) => {
   return {
     type: SIGNUP_AUTH,
-    payload: { success: band.success, band },
+    payload: { success: festival.success, festival },
   }
 }
 
@@ -33,9 +33,9 @@ export const fetchLoginAuth = (body) => async (dispatch) => {
     },
     body: JSON.stringify(body),
   })
-  const band = await response.json()
-  localStorage.setItem('band', JSON.stringify(band))
-  dispatch(loginAuth(band))
+  const festival = await response.json()
+  localStorage.setItem('festival', JSON.stringify(festival))
+  dispatch(loginAuth(festival))
 }
 
 export const fetchSignupAuth = (body) => async (dispatch) => {
@@ -46,8 +46,8 @@ export const fetchSignupAuth = (body) => async (dispatch) => {
     },
     body: JSON.stringify(body),
   })
-  const band = await response.json()
-  localStorage.setItem('band', JSON.stringify(band))
-  if (band.success) dispatch(signupAuth(band))
+  const festival = await response.json()
+  localStorage.setItem('festival', JSON.stringify(festival))
+  if (festival.success) dispatch(signupAuth(festival))
 }
 

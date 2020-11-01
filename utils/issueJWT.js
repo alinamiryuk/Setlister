@@ -4,6 +4,6 @@ const path = require('path')
 const pathToKey = path.join(__dirname, '..', 'priv.pem')
 const PRIV_KEY = fs.readFileSync(pathToKey, 'utf8')
 
-module.exports.issueJWT = (band) => {
-  jwt.sign({ bandId: band._id }, PRIV_KEY, { expiresIn: '1h' })
+module.exports.issueJWT = (festival) => {
+  jwt.sign({ festivalId: festival._id }, PRIV_KEY, { expiresIn: '1h' })
 }
