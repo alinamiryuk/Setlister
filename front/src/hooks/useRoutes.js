@@ -3,6 +3,7 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 import { Login } from '../components/Login/Login'
 import { Logout } from '../components/Logout/Logout'
 import { Signup } from '../components/Signup/Signup'
+import { AuthPage } from '../pages/AuthPage/AuthPage'
 
 export const useRoutes = (auth) => {
   if (auth) {
@@ -18,10 +19,13 @@ export const useRoutes = (auth) => {
   } else {
     return (
       <Switch>
-        <Route path="/auth" exact>
+        <Route path="/signup" exact>
           <Signup />
         </Route>
-        <Redirect to="/auth" />
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Redirect to="/signup" />
       </Switch>
     )
   }
