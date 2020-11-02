@@ -10,7 +10,6 @@ export const useRoutes = (auth) => {
     return (
       <Switch>
         <Route path="/" exact>
-          <Login />
           <Logout />
         </Route>
         <Redirect to="/" />
