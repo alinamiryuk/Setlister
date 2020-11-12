@@ -1,15 +1,16 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import { DaysList } from '../components/DaysList/DaysList'
 import { Login } from '../components/Login/Login'
 import { Logout } from '../components/Logout/Logout'
 import { Signup } from '../components/Signup/Signup'
-import { AuthPage } from '../pages/AuthPage/AuthPage'
 
 export const useRoutes = (auth) => {
   if (auth) {
     return (
       <Switch>
         <Route path="/" exact>
+          <DaysList />
           <Logout />
         </Route>
         <Redirect to="/" />

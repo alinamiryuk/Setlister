@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 module.exports = mongoose.model('day', {
-  date: {
+  title: {
     type: String,
     required: true,
   },

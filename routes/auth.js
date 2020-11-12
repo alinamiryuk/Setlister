@@ -30,6 +30,7 @@ router.post('/signup', async (req, res) => {
       res.status(200).json({
         token,
         festivalname: userName,
+        festivalID: festival.id,
         success: true,
       })
     }
@@ -52,6 +53,7 @@ router.post('/login', async (req, res) => {
         res.status(200).json({
           token,
           festivalname: userName,
+          festivalID: festival.id,
           success: true,
         })
       } else {
