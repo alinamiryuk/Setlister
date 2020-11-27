@@ -5,9 +5,7 @@ import { deleteDay, editDay } from '../../redux/actions/dayActions'
 import { Band } from '../Band/Band'
 
 export const Day = ({ day }) => {
-  const bands = useSelector((store) =>
-    store.bands.filter((band) => band.day === day._id)
-  )
+  const bands = useSelector((store) => store.bands && store.bands.filter((band) => band.day === day._id))
   const dispatch = useDispatch()
   const [editSwitcherDay, setEditSwitcherDay] = useState(false)
   const [newTitle, setNewTitle] = useState(day.title)
@@ -41,7 +39,7 @@ export const Day = ({ day }) => {
           </button>
         </>
       )}
-      {bands.map((band) => (
+      {bands && bands.map((band) => (
         <Card>
           <CardContent>
             <Typography gutterBottom>

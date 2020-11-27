@@ -2,7 +2,7 @@ import { Card, Icon, TextareaAutosize } from '@material-ui/core'
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { createDay } from '../../redux/actions/dayActions'
+import { fetchCreateDay } from '../../redux/actions/dayActions'
 import { createBand } from '../../redux/actions/bandActions'
 import style from './ComponentCreator.module.css'
 
@@ -14,7 +14,7 @@ export const ComponentCreator = ({ day }) => {
   const dispatch = useDispatch()
 
   const handleCreateDay = () => {
-    dispatch(createDay(textarea))
+    dispatch(fetchCreateDay(textarea))
     setCreateMode((state) => !state)
     setTextarea('')
   }

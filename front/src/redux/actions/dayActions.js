@@ -38,6 +38,17 @@ export const createDay = (title) => {
   }
 }
 
+export const fetchCreateDay = (title) => async (dispatch) => {
+  const response = await fetch('/api/day/create', {
+    method: 'POST',
+    body: JSON.stringify(title),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  dispatch(createDay(title))
+}
+
 export const editDay = (_id, newTitle) => {
   return {
     type: EDIT_DAY,
