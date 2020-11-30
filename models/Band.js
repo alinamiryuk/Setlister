@@ -1,18 +1,12 @@
 const mongoose = require('mongoose')
 
 module.exports = mongoose.model('band', {
-  userName: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
+  title: {
     type: String,
     required: true,
   },
- })
+  day: {
+    type: mongoose.Types.ObjectId,
+    ref: 'day',
+  },
+})

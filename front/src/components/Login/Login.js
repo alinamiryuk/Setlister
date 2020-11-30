@@ -1,6 +1,8 @@
 import React from 'react'
+import { Button, Grid } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 import { useForm } from '../../hooks/useForm'
+import { Link } from 'react-router-dom'
 import { fetchLoginAuth } from '../../redux/actions/authActions'
 
 export const Login = () => {
@@ -8,40 +10,40 @@ export const Login = () => {
   const [state, setState] = useForm({ userName: '', password: '' })
 
   return (
-    <>
-      <div class="row">
-        <div class="input-field col s12 hide-span">
-          <input
-            placeholder="USERNAME"
-            id="userName"
-            type="text"
-            name="userName"
-            class="validate"
-            value={state.userName}
-            onChange={setState}
-          />
-        </div>
-        <div class="input-field col s12 hide-span">
-          <input
-            id="password"
-            type="password"
-            class="validate"
-            name="password"
-            placeholder="PASSWORD"
-            value={state.password}
-            onChange={setState}
-          />
-        </div>
-        <button
-          class="secondary-content btn-floating waves-effect waves-light deep-purple darken-4"
-          onClick={(e) => {
-            e.preventDefault()
-            dispatch(fetchLoginAuth(state))
-          }}
-        >
-          <i class="material-icons">check</i>
-        </button>
-      </div>
-    </>
+    <Grid class="auth-collumn" container>
+      <h3>Log in if you have already registered </h3>
+      <label htmlFor="userName-login">Username:</label>
+      <input
+        placeholder="USERNAME"
+        id="userName-login"
+        type="text"
+        name="userName"
+        value={state.userName}
+        onChange={setState}
+      />
+      <label htmlFor="password-login">Password:</label>
+      <input
+        id="password-login"
+        type="password"
+        name="password"
+        placeholder="PASSWORD"
+        value={state.password}
+        onChange={setState}
+      />
+
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={(e) => {
+          e.preventDefault()
+          dispatch(fetchLoginAuth(state))
+        }}
+      >
+        Log in
+      </Button>
+      <label>Don't have an account?
+      <Link to="/signup"> Signup</Link>
+      </label>
+    </Grid>
   )
 }

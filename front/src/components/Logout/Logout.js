@@ -12,7 +12,7 @@ export const Logout = () => {
       <button
         onClick={() => {
           dispatch(logoutAuth())
-          localStorage.removeItem('band')
+          localStorage.removeItem('festival')
           history.push('/auth')
         }}
       >

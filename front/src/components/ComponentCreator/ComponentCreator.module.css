@@ -1,0 +1,36 @@
+/* .button  */
+.day,
+.band {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 3%;
+  height: 3em;
+  min-width: 20em;
+  padding-left: 0.5em;
+}
+
+.day {
+  opacity: 0.35;
+  color: white;
+  background-color: black;
+}
+
+.band {
+  opacity: 0.5;
+  color: inherit;
+  background-color: inherit;
+}
+
+.textarea {
+  resize: none;
+  width: 100%;
+  outline: none;
+  border: none;
+}
+
+.card {
+  min-height: 2.45em;
+  padding: 0.5em;
+}
+
