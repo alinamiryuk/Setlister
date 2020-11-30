@@ -31,22 +31,23 @@ export const deleteDay = (_id) => async (dispatch) => {
   console.error('Something broke')
 }
 
-export const createDay = (title) => {
+export const createDay = (dayTitle) => {
   return {
     type: CREATE_DAY,
-    payload: title,
+    payload: dayTitle,
   }
 }
 
 export const fetchCreateDay = (title) => async (dispatch) => {
-  const response = await fetch('/api/day/create', {
+  const dayTitle = await fetch('/api/day', {
     method: 'POST',
     body: JSON.stringify(title),
     headers: {
       'Content-Type': 'application/json',
     },
   })
-  dispatch(createDay(title))
+  // const dayTitle = await response.json()
+  dispatch(createDay(dayTitle))
 }
 
 export const editDay = (_id, newTitle) => {
